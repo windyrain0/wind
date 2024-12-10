@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+#menu {
+  position: relative;
+  z-index: 5; /* 保持原有的z-index设定，确保#menu在#asuk之上 */
+  width: 100%;
+  /* 设置#menu的高度使其与#asuk部分重叠 */
+  height: calc(100% -50px);
+  /* 添加顶部负外边距，使#menu向上移动，与#asuk顶部对齐 */
+  margin-top: 50px;
+}
+#menu ul {
+    /* 弹性布局，水平排列 */
+    display: flex;
+    flex-direction: row;
+
+    /* 如果需要整体居中对齐，可以添加以下任一方式 */
+    /* 使用Flexbox居中对齐 */
+    justify-content: center;
+
+    /* 或者使用文本居中对齐（适用于父容器已定宽的情况） */
+    /* text-align: center; */
+
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li {
+    list-style: none;
+    /* 这里加个动画过渡 */
+    transition: 0.5s;
+}
+
+#menu ul li a {
+    /* 相对定位 */
+    position: relative;
+    display: block;
+    text-align: center;
+    /* 调整外边距以适应一行显示 */
+    margin: 0 20px; /* 替换为合适的值 */
+    color: #333;
+    font-size: 25px;
+    text-decoration: none;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+#menu ul:hover li {
+    /* 不透明度 */
+    opacity: 0.2;
+    /* 模糊度 */
+    filter: blur(2px);
+}
+
+#menu ul li:hover {
+    opacity: 1;
+    filter: blur(0px);
+}

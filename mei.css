@@ -1,0 +1,639 @@
+*{
+margin: 0 auto;
+padding: 0px;}
+#body{ 
+           width:100%;
+		   height:;
+			position: relative; /* 确保伪元素相对于#body定位 */
+			overflow: hidden; /* 防止伪元素溢出 */
+		}
+		
+		#body::before {
+			content: ""; /* 必须有内容 */
+			position: absolute; /* 绝对定位 */
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-image: url(../大创/sucai/1111.jpg); /* 设置背景图片 */
+			background-size: cover; /* 背景图片覆盖 */
+			background-position: center; /* 背景居中 */
+			opacity: 0.3; /* 设置透明度，可调整为所需值 */
+			z-index: 0; /* 确保伪元素在底层 */
+		}
+		
+		#body > * {
+			position: relative; /* 确保所有子元素在伪元素之上 */
+			z-index: 1; /* 确保子元素在伪元素之上 */
+		}
+#logo{width:100%;height:100px;left;}
+#header{width: 30%;height:50px;}
+body {
+    overflow-x: hidden;
+}
+#logo{}
+#menu {
+  position: relative;
+  z-index: 5; /* 保持原有的z-index设定，确保#menu在#asuk之上 */
+  width: 100%;
+  /* 设置#menu的高度使其与#asuk部分重叠 */
+  height: calc(100% -50px);
+  /* 添加顶部负外边距，使#menu向上移动，与#asuk顶部对齐 */
+  margin-top: 20px;
+  margin-bottom:-80px;
+}
+#menu ul {
+    /* 弹性布局，水平排列 */
+    display: flex;
+    flex-direction: row;
+
+    /* 如果需要整体居中对齐，可以添加以下任一方式 */
+    /* 使用Flexbox居中对齐 */
+    justify-content: center;
+
+    /* 或者使用文本居中对齐（适用于父容器已定宽的情况） */
+    /* text-align: center; */
+
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li {
+    list-style: none;
+    /* 这里加个动画过渡 */
+    transition: 0.5s;
+}
+
+#menu ul li a {
+    /* 相对定位 */
+    position: relative;
+    display: block;
+    text-align: center;
+    /* 调整外边距以适应一行显示 */
+    margin: 0 20px; /* 替换为合适的值 */
+    color: #333;
+    font-size: 30px;
+    text-decoration: none;
+    line-height: 40px;
+    font-family:STXingkai;
+	color:#FFFFFF;
+}
+
+#menu ul:hover li {
+    /* 不透明度 */
+    opacity: 0.2;
+    /* 模糊度 */
+    filter: blur(2px);
+}
+
+#menu ul li:hover {
+    opacity: 1;
+    filter: blur(0px);
+}
+.social-media {
+    margin: 0 auto 0 50px;
+}
+
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: all .3s linear;
+}
+
+.social-media a:hover {
+    background: #fff;
+}
+
+.social-media a i {
+    font-size: 20px;
+    color: #fff;
+    transition: all .3s linear;
+}
+
+.social-media a:hover i {
+    color: #2d2b2b;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 30px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* section */
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slider .sliden {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+}
+
+.sliden img {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+.sliden.active img {
+    opacity: 1;
+}
+
+.sliden .left-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 500px;
+    /* background: red; */
+    transform: translateX(-100%);
+    transition: 0;
+}
+
+.sliden.active .left-info {
+    transform: translateX(0);
+    z-index: 1;
+    transition: 1s ease;
+}
+
+.left-info .penetrte-blur {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    background: rgba(255, 255, 255, .1);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    -webkit-mask: linear-gradient(#000 0 0),
+        linear-gradient(#000 0 0);
+    -webkit-mask-clip: text, padding-box;
+    -webkit-mask-composite: xor;
+    padding-right: 15px;
+}
+
+.penetrte-blur h2 {
+    font-size: 120px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+	
+}
+
+.left-info .contents {
+    position: absolute;
+    bottom: 8%;
+    left: 10%;
+    color: #fff;
+}
+
+.contents h6 {
+    font-size: 20px;
+}
+
+.contents p {
+    font-size: 16px;
+    margin: 10px 10px 15px 0px;
+}
+
+.contents .btn {
+    display: inline-block;
+    padding: 13px 28px;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    font-weight: 600;
+    color: #444;
+    font-size: 16px;
+    transition: all .3s linear;
+}
+
+.contents .btn:hover {
+    background: transparent;
+    color: #fff;
+}
+
+.sliden .right-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 500px;
+    /* background: red; */
+    display: flex;
+    align-items: center;
+    transform: translateX(100%);
+    transition: 0s;
+}
+
+.sliden.active .right-info {
+    transform: translateX(0);
+    transition: 1s ease;
+}
+
+
+.right-info h2 {
+    font-size: 250px;
+    color: #fff;
+    text-shadow:
+        0 1px 0 #ccc,
+        0 2px 0 #c9c9c9,
+        0 3px 0 #bbb,
+        0 4px 0 #b9b9b9,
+        0 5px 0 #aaa,
+        0 6px 1px rgba(0, 0, 0, .1),
+        0 0px 5px rgba(0, 0, 0, .1),
+        0 1px 3px rgba(0, 0, 0, .3),
+        0 3px 5px rgba(0, 0, 0, .2),
+        0 5px 10px rgba(0, 0, 0, .25),
+        0 10px 10px rgba(0, 0, 0, .2),
+        0 20px 20px rgba(0, 0, 0, .15);
+}
+
+.right-info h6 {
+    position: absolute;
+    font-size: 50px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    transform: translateY(150%);
+    margin-left: 10px;
+	margin-bottom:-30px;
+}
+
+.navigation {
+    position: absolute;
+    bottom: 26%;
+    right: 44.5%;
+    z-index: 100;
+}
+
+.navigation span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    margin-left: 25px;
+    transition: .3s;
+}
+
+.navigation span:nth-child(1) {
+    background: transparent;
+}
+
+.navigation span:nth-child(1):hover {
+    background: #fff;
+}
+
+.navigation span i {
+    font-size: 45px;
+    color: #444;
+    transition: .4s;
+}
+
+.navigation span:nth-child(1) i {
+    color: #fff;
+}
+
+.navigation span:nth-child(1):hover i {
+    color: #444;
+}
+#vedioa{
+	margin-top: -125px;
+	background-image: url(../大创/sucai/bg1.jpg);
+}
+#text-top {margin-top:20px; margin-bottom:60px; width:100%; height:40px; float:center; text-align:center; font-size:30px;}
+#text-top2 {margin-top:20px; margin-bottom:60px; width:100%; height:40px; float:center; text-align:center; font-size:20px;}
+
+.content{
+	width:1200px;
+	margin:0 auto;
+	overflow: hidden;
+	
+}
+header ul li{
+	width:25%;
+	color:#fff;
+	text-align: center;
+	color:#fff;
+	float:left;
+}
+.img{
+	width:500px;
+	margin-left:40px;
+	margin-right:40px;
+	margin-bottom:40px;
+	margin-top:40px;
+}
+.left{
+	width:520px;
+	float:left;
+	padding:0px 10px;
+}
+.right{
+	width:520px;
+	float:right;
+	padding:0px 10px;
+	margin-right:60px;
+}
+.text1 {
+	line-height: 30px;
+	color:#333;
+	width:90%;
+	margin:20px auto;
+	margin-top:40px;
+	margin-bottom:40px;
+	margin-left:40px;
+	margin-right:80px;
+	float:center;
+}
+.text2 {
+	line-height: 30px;
+	color:#333;
+	width:90%;
+	margin:20px auto;
+	margin-top:40px;
+	margin-bottom:40px;
+	margin-left:80px;
+	margin-right:40px;
+	float:center;
+}
+.con{
+	margin:20px auto;
+	background: #fff
+    border-radius:5px;
+    box-shadow: 0px 0px 10px #999
+}
+h2{
+	margin:20px 0px;
+	text-align: center
+}
+.circle{
+	border:1px solid #999;
+	width:90%;
+	padding:5% 5%;
+	
+	border-radius:5px;
+}
+.circles{
+	height:700px;
+    background:url(pohoto/4.jpg)no-repeat;
+	background-size: cover;
+	margin-top:65px;
+}
+.lle{
+	width:40%;
+	float:left;
+	padding:10px 1%;
+}
+.lle img{
+	height:540px;
+}
+.lles{
+	width:30%;
+	float:right;
+	padding:10px 1%;
+}
+.lles img{
+	height:200px;
+}
+.texts{
+	height:100px;
+}
+
+.category-cover-image {
+        margin: 20px auto;
+        width: 100%;
+        height: 0;
+        padding-bottom: 40%;
+        position: relative;
+        overflow: hidden;
+}
+ 
+.category-cover-image img {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0 48px 0 48px;
+    }
+.leftt{
+    width:auto;
+	float:left;
+	padding:0px 10px;
+	height:200px;
+}.list li{
+	width:23%;
+	float:left;
+	margin:20px 1%;
+	overflow: hidden
+}
+.list li img{
+	height:184px;
+}
+.list li:hover img{
+	transform: scale(1.2,1.2);
+	transition: all 2s
+}
+
+.su{
+	background: #53888e;
+	padding:10px 0px;
+	text-align: center;
+	color:#fff;
+	width:50%;
+	border-radius:25px;
+	margin:10px auto;
+}
+.te img{
+	margin-top:60px;
+}
+
+#picshow {
+    height: auto; /* 改为 auto 以适应内容 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #808080;
+    margin-bottom: 80px;
+}
+
+.box {
+    width: 1200px;
+    height: auto; /* 改为 auto 以适应内容 */
+    display: flex;
+    flex-direction: row;
+}
+
+.img-box{
+    width: 200px;
+    height: 550px;
+    overflow: hidden;
+    /* �Ӹ��������� */
+    transition: 0.3s;
+}
+.img-box img{
+    width: 100%;
+    height: 100%;
+    /* ���������ҵ�ͼƬ������ͼ���������Ǻ���ģ����Զ�ͼƬ�������´����������Ҹ����Լ���ͼƬ���е��ڼ��� */
+    /* ��ͼƬ���м��У�����ԭʼ���� */
+    object-fit: cover;
+    /* object-position����һ����object-fitһ��ʹ�ã���������Ԫ�ص�λ�� */
+    object-position: 50% 20%;
+}
+/* Ĭ�����һ��չ�� */
+.img-box:nth-child(5){
+    width: 400px;
+}
+/* ������룬ͼƬչ�� */
+.img-box:hover{
+    width: 400px;
+}
+.img-box:hover ~ .img-box:nth-child(5){
+    width: 200px;
+}
+#party{
+    /* 100%窗口高度 */
+    height: 700px;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	margin-bottom:100px;
+}
+.containery{
+    width: 1000px;
+    height: 700px;
+}
+.containery ul{
+    list-style: none;
+    /* 相对定位 */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* 弹性布局 */
+    display: flex;
+    /* 让子元素平均分配宽度 */
+    justify-content: space-around;
+    /* 让子元素在交叉轴（Y轴）的最下方排列 */
+    align-items: flex-end;
+}
+.containery ul li{
+    width: 200px;
+    cursor: pointer;
+}
+/* 小图 */
+.containery ul li img{
+    width: 100%;
+    height: 110px;
+    /* 加个透明边框，让图片看起来有距离 */
+    border: 5px solid transparent;
+}
+/* 大图 */
+.containery ul .big2-img{
+    /* 绝对定位 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1000px;
+    height: 550px;
+    /* 背景图片 不平铺 */
+    background: url(../大创/sucai/yl1.png) no-repeat;
+    /* 对图片进行剪切，保留原始比例 */
+    background-size: cover;
+    /* 图片定位正中间 */
+    background-position: center;
+    /* 和小图片一样的透明边框，为了对齐 */
+    border: 5px solid transparent;
+    /* 动画过渡 */
+    transition: 0.5s;
+}
+/* 移动框 */
+.containery ul .frame2{
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 200px;
+    height: 110px;
+    border: 5px solid #fff;
+    /* 这里有一个bug（闪烁） */
+    /* 加这个属性可以让移动框不会被鼠标捕捉到（解决闪烁这个bug） */
+    pointer-events: none;
+    /* 加个动画过渡 */
+    transition: 0.5s;
+}
+/* 移动框上的三角形 */
+.containery ul .frame2::before{
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background-color: #fff;
+    /* 计算 居中 */
+    left: calc(50% - 15px);
+    top: -18px;
+    /* 裁切出一个三角形 */
+    clip-path: polygon(0 100%,50% 0,100% 100%);
+}
+/* 鼠标移入小图，改变大图 */
+.containery ul li:nth-child(1):hover ~ .big2-img{
+background-image:url(../大创/sucai/yl1.png);
+}
+.containery ul li:nth-child(2):hover ~ .big2-img{
+    background-image: url(../大创/sucai/yl2.png);
+}
+.containery ul li:nth-child(3):hover ~ .big2-img{
+    background-image: url(../大创/sucai/yl3.png);
+}
+.containery ul li:nth-child(4):hover ~ .big2-img{
+    background-image: url(../大创/sucai/yl4.png);
+}
+.containery ul li:nth-child(5):hover ~ .big2-img{
+    background-image: url(../大创/sucai/yl5.png);
+}
+
+/* 鼠标移入小图，改变移动框的位置 */
+.containery ul li:nth-child(1):hover ~ .frame2{
+    left: 0;
+}
+.containery ul li:nth-child(2):hover ~ .frame2{
+    left: 200px;
+}
+.containery ul li:nth-child(3):hover ~ .frame2{
+    left: 400px;
+}
+.containery ul li:nth-child(4):hover ~ .frame2{
+    left: 600px;
+}
+.containery ul li:nth-child(5):hover ~ .frame2{
+    left: 800px;
+}
+
